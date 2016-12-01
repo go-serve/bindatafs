@@ -5,9 +5,6 @@ import (
 	"time"
 )
 
-// Type of an asset provided by FileSystem
-type Type int
-
 // fileInfo implements FileInfo
 type fileInfo struct {
 	name string
