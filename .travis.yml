@@ -2,11 +2,8 @@ language: go
 
 sudo: false
 
-before_script:
-  - TZ=Asia/Hong_Kong find ./example -type f -exec touch -t 201611210125.30 "{}" \;
-
 script:
-  - go test -v ./...
+  - make test
 
 os:
   - linux

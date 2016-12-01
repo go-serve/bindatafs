@@ -6,7 +6,7 @@
 // assets/index.html
 // DO NOT EDIT!
 
-package example
+package example1
 
 import (
 	"bytes"

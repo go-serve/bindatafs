@@ -9,8 +9,10 @@ import (
 	"golang.org/x/tools/godoc/vfs"
 
 	"github.com/go-serve/bindatafs"
-	"github.com/go-serve/bindatafs/example"
+	"github.com/go-serve/bindatafs/examples/example1"
 )
+
+const ASSETS_PATH = "./examples/example1/assets/"
 
 func TestFileSystem(t *testing.T) {
 	var vfsFS vfs.FileSystem = bindatafs.New("assets://", nil, nil, nil)
@@ -65,7 +67,7 @@ func fileInfoEqual(src, target os.FileInfo) (err error) {
 }
 
 func TestFileSystem_Open(t *testing.T) {
-	fs := example.FileSystem()
+	fs := example1.FileSystem()
 	tests := []struct {
 		desc string
 		path string
@@ -119,7 +121,7 @@ func TestFileSystem_Open(t *testing.T) {
 		defer file.Close()
 
 		// get the counter part in the source assets
-		srcFile, err := os.Open("example/assets/" + test.path)
+		srcFile, err := os.Open(ASSETS_PATH + test.path)
 		if err != nil {
 			t.Errorf("unexpected error: %s", err.Error())
 		}
@@ -139,8 +141,8 @@ func TestFileSystem_Open(t *testing.T) {
 
 func TestFileSystem_Stat(t *testing.T) {
 
-	fs := example.FileSystem()
-	assetvfs := vfs.OS("./example/assets")
+	fs := example1.FileSystem()
+	assetvfs := vfs.OS(ASSETS_PATH)
 
 	tests := []struct {
 		desc string
@@ -188,7 +190,7 @@ func TestFileSystem_Stat(t *testing.T) {
 		}
 
 		// get the counter part in the source assets
-		srcFile, err := os.Open("example/assets/" + test.path)
+		srcFile, err := os.Open(ASSETS_PATH + test.path)
 		if err != nil {
 			t.Errorf("unexpected error: %s", err.Error())
 			continue
@@ -234,7 +236,7 @@ func TestFileSystem_Stat(t *testing.T) {
 		}
 
 		// get the counter part in the source assets
-		srcFile, err := os.Open("example/assets/" + test.path)
+		srcFile, err := os.Open(ASSETS_PATH + test.path)
 		if err != nil {
 			t.Errorf("unexpected error: %s", err.Error())
 			continue
@@ -261,8 +263,8 @@ func TestFileSystem_Stat(t *testing.T) {
 
 func TestFileSystem_Readdir(t *testing.T) {
 
-	fs := example.FileSystem()
-	assetvfs := vfs.OS("./example/assets")
+	fs := example1.FileSystem()
+	assetvfs := vfs.OS(ASSETS_PATH)
 
 	tests := []struct {
 		desc  string

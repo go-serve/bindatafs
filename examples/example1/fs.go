@@ -1,4 +1,4 @@
-package example
+package example1
 
 import "github.com/go-serve/bindatafs"
 

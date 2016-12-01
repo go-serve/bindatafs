@@ -1,4 +1,4 @@
-package example_test
+package example1_test
 
 import (
 	"fmt"
@@ -10,7 +10,7 @@ import (
 
 	"golang.org/x/tools/godoc/vfs/httpfs"
 
-	"github.com/go-serve/bindatafs/example"
+	"github.com/go-serve/bindatafs/examples/example1"
 )
 
 func assetContents(name string) (str string) {
@@ -29,7 +29,7 @@ func assetContents(name string) (str string) {
 }
 
 func TestFileSystem(t *testing.T) {
-	fileSrvr := http.FileServer(httpfs.New(example.FileSystem()))
+	fileSrvr := http.FileServer(httpfs.New(example1.FileSystem()))
 
 	tests := []struct {
 		desc      string
