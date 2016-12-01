@@ -8,44 +8,29 @@ import (
 
 	"github.com/go-serve/bindatafs"
 	"github.com/go-serve/bindatafs/examples/example1"
-	"github.com/go-serve/bindatafs/examples/example2"
-	"golang.org/x/tools/godoc/vfs"
 	"golang.org/x/tools/godoc/vfs/httpfs"
 )
 
-func exampleUnionIndex(w http.ResponseWriter, r *http.Request) {
+func exampleFsIndex(w http.ResponseWriter, r *http.Request) {
 	w.WriteHeader(http.StatusOK)
 	fmt.Fprintf(w, "Hello Index\n")
 }
 
-func ExampleFileSystem_union() {
+func ExampleFileSystem() {
 
 	// create vfs.FileSystem implementation for
 	// the go-bindata generated assets
-	assetsfs1 := bindatafs.New(
-		"assets1://",
+	assetsfs := bindatafs.New(
+		"assets://",
 		example1.Asset,
 		example1.AssetDir,
 		example1.AssetInfo,
 	)
 
-	assetsfs2 := bindatafs.New(
-		"assets2://",
-		example2.Asset,
-		example2.AssetDir,
-		example2.AssetInfo,
-	)
-
-	// compose 2 assets set into the same
-	// namespace
-	assetsfs := vfs.NameSpace{}
-	assetsfs.Bind("/", assetsfs2, "/", vfs.BindAfter)
-	assetsfs.Bind("/", assetsfs1, "/", vfs.BindAfter)
-
 	// serve the files with http
 	mux := http.NewServeMux()
 	mux.Handle("/assets/", http.StripPrefix("/assets/", http.FileServer(httpfs.New(assetsfs))))
-	mux.Handle("/", http.HandlerFunc(exampleUnionIndex))
+	mux.Handle("/", http.HandlerFunc(exampleFsIndex))
 
 	// production: uncomment this
 	//http.ListenAndServe(":8080", mux)
@@ -68,14 +53,7 @@ func ExampleFileSystem_union() {
 	body, _ = ioutil.ReadAll(resp.Body)
 	fmt.Printf("%s", body)
 
-	// examine an asset
-	resp, _ = http.Get(server.URL + "/assets/css/style.css")
-	defer resp.Body.Close()
-	body, _ = ioutil.ReadAll(resp.Body)
-	fmt.Printf("%s", body)
-
 	// Output:
 	// Hello Index
-	// Hello CSS Assets
-	// body { background-color: #AFA; }
+	// Hello World
 }
