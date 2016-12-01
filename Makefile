@@ -6,10 +6,16 @@
 # For installation details, please read README.md
 #
 
-test: timestamp
+test: timestamp test.dep
 	@echo
 	@echo "== Run tests"
 	go test -v -cover ./...
+
+test.dep:
+	@echo
+	@echo "== Install test dependencies"
+	go get -u golang.org/x/tools/godoc/vfs
+	touch test.dep
 
 generate: timestamp
 	@echo
