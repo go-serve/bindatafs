@@ -1,16 +1,19 @@
-# bindatafs [![Travis CI results][shield-travis]][travis] [![Documentations][shield-godoc]][godoc]
+# bindatafs [![Documentations][shield-godoc]][godoc] [![Travis CI results][shield-travis]][travis] [![Coverage Status][coveralls-badge]][coveralls]
 
 [travis]: https://travis-ci.org/go-serve/bindatafs
 [repository]: https://github.com/go-serve/bindatafs
 [go-bindata]: https://github.com/jteeuwen/go-bindata
 [godoc]: https://godoc.org/github.com/go-serve/bindatafs
+[coveralls]: https://coveralls.io/github/go-restit/lzjson?branch=master
 [http.FileServer]: https://golang.org/pkg/net/http/#FileServer
 
 [shield-travis]: https://api.travis-ci.org/go-serve/bindatafs.svg?branch=master
 [shield-godoc]: https://img.shields.io/badge/godoc-reference-5272B4.svg
+[shield-coveralls]: https://coveralls.io/repos/github/go-restit/lzjson/badge.svg?branch=master
 
 **bindatafs** helps to serve [go-bindata][go-bindata]-generated assets with
 [http.FileServer][http.FileServer].
+
 
 ## Install
 
