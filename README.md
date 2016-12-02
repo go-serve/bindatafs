@@ -1,15 +1,16 @@
-# bindatafs [![Documentations][shield-godoc]][godoc] [![Travis CI results][shield-travis]][travis] [![Coverage Status][coveralls-badge]][coveralls]
+# bindatafs [![Documentations][godoc-badge]][godoc] [![Travis CI results][travis-badge]][travis] [![Coverage Status][coveralls-badge]][coveralls]
 
 [travis]: https://travis-ci.org/go-serve/bindatafs
+[travis-badge]: https://api.travis-ci.org/go-serve/bindatafs.svg?branch=master
+[godoc]: https://godoc.org/github.com/go-serve/bindatafs
+[godoc-badge]: https://img.shields.io/badge/godoc-reference-5272B4.svg
+[coveralls]: https://coveralls.io/github/go-restit/lzjson?branch=master
+[coveralls-badge]: https://coveralls.io/repos/github/go-restit/lzjson/badge.svg?branch=master
+
 [repository]: https://github.com/go-serve/bindatafs
 [go-bindata]: https://github.com/jteeuwen/go-bindata
-[godoc]: https://godoc.org/github.com/go-serve/bindatafs
-[coveralls]: https://coveralls.io/github/go-restit/lzjson?branch=master
 [http.FileServer]: https://golang.org/pkg/net/http/#FileServer
 
-[shield-travis]: https://api.travis-ci.org/go-serve/bindatafs.svg?branch=master
-[shield-godoc]: https://img.shields.io/badge/godoc-reference-5272B4.svg
-[shield-coveralls]: https://coveralls.io/repos/github/go-restit/lzjson/badge.svg?branch=master
 
 **bindatafs** helps to serve [go-bindata][go-bindata]-generated assets with
 [http.FileServer][http.FileServer].
