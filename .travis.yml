@@ -7,7 +7,7 @@ before_script:
 
 script:
   - make test
-  - $HOME/gopath/bin/goveralls -service=travis-ci
+  - $HOME/gopath/bin/goveralls -service=travis-ci -ignore='examples/*'
 
 os:
   - linux
