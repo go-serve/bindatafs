@@ -17,6 +17,7 @@ type FileSystem interface {
 	Lstat(path string) (os.FileInfo, error)
 	Stat(path string) (os.FileInfo, error)
 	ReadDir(path string) ([]os.FileInfo, error)
+	RootType(string) vfs.RootType
 	String() string
 }
 
@@ -46,6 +47,7 @@ type binAssets struct {
 	AssetInfo AssetInfoFunc
 }
 
+// Open implements vfs.Namespace
 func (binAssets *binAssets) Open(pathname string) (file vfs.ReadSeekCloser, err error) {
 
 	pathname = binAssets.pathname(pathname)
@@ -86,6 +88,7 @@ func (binAssets binAssets) pathname(pathname string) string {
 	return pathname
 }
 
+// Stat implements vfs.Namespace
 func (binAssets *binAssets) Stat(pathname string) (fi os.FileInfo, err error) {
 
 	pathname = binAssets.pathname(pathname)
@@ -111,6 +114,7 @@ func (binAssets *binAssets) Stat(pathname string) (fi os.FileInfo, err error) {
 	return
 }
 
+// ReadDir implements vfs.Namespace
 func (binAssets *binAssets) ReadDir(pathname string) (fiList []os.FileInfo, err error) {
 
 	pathname = binAssets.pathname(pathname)
@@ -145,6 +149,12 @@ func (binAssets *binAssets) ReadDir(pathname string) (fiList []os.FileInfo, err 
 	return
 }
 
+// RootType implements vfs.Namespace
+func (binAssets *binAssets) RootType(string) vfs.RootType {
+	return ""
+}
+
+// String implements vfs.FileSystem
 func (binAssets *binAssets) String() string {
 	return binAssets.name
 }

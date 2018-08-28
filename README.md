@@ -1,4 +1,4 @@
-# bindatafs [![Documentations][godoc-badge]][godoc] [![Travis CI results][travis-badge]][travis] [![Coverage Status][coveralls-badge]][coveralls]
+# bindatafs [![Documentations][godoc-badge]][godoc] [![Travis CI results][travis-badge]][travis] [![Go Report Card][goreport-badge]][goreport] [![Coverage Status][coveralls-badge]][coveralls]
 
 [travis]: https://travis-ci.org/go-serve/bindatafs
 [travis-badge]: https://api.travis-ci.org/go-serve/bindatafs.svg?branch=master
@@ -6,6 +6,8 @@
 [godoc-badge]: https://img.shields.io/badge/godoc-reference-5272B4.svg
 [coveralls]: https://coveralls.io/github/go-restit/lzjson?branch=master
 [coveralls-badge]: https://coveralls.io/repos/github/go-restit/lzjson/badge.svg?branch=master
+[goreport]: https://goreportcard.com/report/github.com/go-serve/bindatafs
+[goreport-badge]: https://goreportcard.com/badge/github.com/go-serve/bindatafs
 
 [repository]: https://github.com/go-serve/bindatafs
 [go-bindata]: https://github.com/jteeuwen/go-bindata
