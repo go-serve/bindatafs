@@ -345,6 +345,13 @@ func TestFileSystem_Readdir(t *testing.T) {
 
 }
 
+func TestFileSystem_RootType(t *testing.T) {
+	fs := bindatafs.New("hello", nil, nil, nil)
+	if want, have := vfs.RootType(""), fs.RootType("hello"); want != have {
+		t.Logf("expected %#v, got %#v", want, have)
+	}
+}
+
 func TestFileSystem_String(t *testing.T) {
 	fs := bindatafs.New("hello", nil, nil, nil)
 	if want, have := "hello", fs.String(); want != have {
